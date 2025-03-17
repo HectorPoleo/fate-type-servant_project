@@ -1,2 +1,2 @@
-# Fate-Type-Servant_Project
+# Fate-Type-Servant-Project
 ***Tipos de servants en la saga Fate***
