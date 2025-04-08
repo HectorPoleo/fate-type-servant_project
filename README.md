@@ -29,9 +29,9 @@ se presenta una categorización estructurada de los *Servants* según sus caract
 interesados en la franquicia *Fate*.
 
 ## 📷 Vista previa
-
-![Diagrama de Servants](Servant_gallery.drawio.png)
-
+´´´<html>
+<img src= "Fate Servants/fate_servant_type/image/Servant_gallery.drawio.png"> 
+´´´
 ---
 
 ```
