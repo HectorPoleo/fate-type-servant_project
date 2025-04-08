@@ -5,8 +5,8 @@
 ```markdown
 # Fate-Type-Servant Project
 
-Este proyecto explora los distintos tipos de *Servants* del universo **Fate**, una franquicia de anime, novelas visuales y juegos.
-A través de diagramas, clases en Java y recursos visuales,
+Este proyecto explora los distintos tipos de *Servants* del universo **Fate**, una franquicia de anime, novelas visuales
+y juegos.A través de diagramas, clases en Java y recursos visuales,
 se presenta una categorización estructurada de los *Servants* según sus características, clases y atributos únicos.
 
 ## 📁 Estructura del proyecto
@@ -25,7 +25,8 @@ se presenta una categorización estructurada de los *Servants* según sus caract
 
 - Modelar los tipos de *Servants* como clases en Java.
 - Representar gráficamente las relaciones entre clases y subclases.
-- Servir como herramienta de estudio o referencia para fans y desarrolladores interesados en la franquicia *Fate*.
+- Servir como herramienta de estudio o referencia para fans y desarrolladores
+interesados en la franquicia *Fate*.
 
 ## 📷 Vista previa
 
