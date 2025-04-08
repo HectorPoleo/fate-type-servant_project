@@ -30,7 +30,7 @@ interesados en la franquicia *Fate*.
 
 ## 📷 Vista previa
 ´´´<html>
-<img src= "Fate Servants/fate_servant_type/image/Servant_gallery.drawio.png"> 
+<img src= "Fate Servants/fate_servant_type/Servant_gallery.drawio.png"> 
 ´´´
 ---
 
