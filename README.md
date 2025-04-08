@@ -1,13 +1,13 @@
 # Fate-Type-Servant-Project
 ***Tipos de servants en la saga Fate***
-Claro, aquí tienes un `README.md` para el repositorio [fate-type-servant_project](https://github.com/HectorPoleo/fate-type-servant_project), basado en la estructura del proyecto y los archivos incluidos:
-
 ---
 
 ```markdown
 # Fate-Type-Servant Project
 
-Este proyecto explora los distintos tipos de *Servants* del universo **Fate**, una franquicia de anime, novelas visuales y juegos. A través de diagramas, clases en Java y recursos visuales, se presenta una categorización estructurada de los *Servants* según sus características, clases y atributos únicos.
+Este proyecto explora los distintos tipos de *Servants* del universo **Fate**, una franquicia de anime, novelas visuales y juegos.
+A través de diagramas, clases en Java y recursos visuales,
+se presenta una categorización estructurada de los *Servants* según sus características, clases y atributos únicos.
 
 ## 📁 Estructura del proyecto
 
