@@ -28,12 +28,7 @@ se presenta una categorización estructurada de los *Servants* según sus caract
 - Servir como herramienta de estudio o referencia para fans y desarrolladores
 interesados en la franquicia *Fate*.
 
-## 📷 Vista previa
-
 ---
-´´´<html>
-<img src= "Fate Servants/fate_servant_type/Servant_gallery.drawio.png"> 
-´´´
 ```
 
 ´´´<html>
