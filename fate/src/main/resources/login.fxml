@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="457.0" prefWidth="511.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.LoginController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="-40.0" layoutY="51.0" pickOnBounds="false" prefHeight="355.0" prefWidth="592.0" spacing="10.0" stylesheets="@../../../css/estilos.css">
+         <ComboBox fx:id="comboIdioma" onAction="#seleccionarIdiomaClick" prefWidth="150.0" promptText="idiomas" />
+         <Text id="text" fx:id="textUsuario" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+            <TextField id="found" fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" promptText="Insertar Usuario" />
+         <Text id="text" fx:id="textContrasenia" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+            <PasswordField id="found" fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" promptText="Insertar Contraseña" />
+         <Text id="error" fx:id="textFieldMensaje" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+            <Button id="button" fx:id="buttonIniciarSesion" alignment="TOP_CENTER" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="163.0" text="Iniciar sesion" textAlignment="CENTER" />
+            <Button id="button" fx:id="buttonRegistrar" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#openRegistrarClick" text="Registrarse" />
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
