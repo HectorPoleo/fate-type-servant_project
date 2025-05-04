@@ -44,6 +44,8 @@ public class InicioController extends AbstractasController{
 
     @FXML
     public void initialize() throws SQLException {
-        ConfigManager.ConfigProperties.setPath("src/main/resources/bbdd/idioma-es.properties");
+        if(ConfigManager.ConfigProperties.getPath() == null){
+            ConfigManager.ConfigProperties.setPath("src/main/resources/bbdd/idioma-es.properties");
+        }
     }
 }

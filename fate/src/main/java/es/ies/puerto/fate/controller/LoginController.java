@@ -52,7 +52,6 @@ public class LoginController extends AbstractasController {
         comboIdioma.getItems().add("es");
         comboIdioma.getItems().add("en");
         comboIdioma.getItems().add("fr");
-        cargarIdioma("es");
         cambiarIdioma();
         this.usuarioServiceModel = new UsuarioServiceModel();
     }
