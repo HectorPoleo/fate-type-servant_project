@@ -7,8 +7,15 @@ import java.sql.SQLException;
 
 public abstract class Conexion {
 
-    static final String PATH_DB ="src/main/resources/usuarios.db";
+    private String PATH_DB;
     protected Connection connection;
+
+    /**
+     * Constructor vacio
+     */
+    public Conexion() {
+        PATH_DB = "fate/src/main/resources/bbdd/usuarios.db";
+    }
 
     /**
      * Constructor con path de conexion
@@ -16,19 +23,16 @@ public abstract class Conexion {
      * @param unaRutaArchivoBD ruta de la bbdd
      * @throws SQLException error controlado
      */
-    public Conexion() {
-        try {
-            if (PATH_DB == null || PATH_DB.isEmpty()) {
-                throw new SQLException("El fichero es nullo o vacio");
-            }
-            File file = new File(PATH_DB);
-            if (!file.exists()) {
-                throw new SQLException("No exise la bbdd:" + PATH_DB);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public Conexion(String unaRutaArchivoBD) throws SQLException {
+        if (unaRutaArchivoBD == null || unaRutaArchivoBD.isEmpty()) {
+            throw new SQLException("El fichero es nullo o vacio");
+        }
+        File file = new File(unaRutaArchivoBD);
+        if (!file.exists()) {
+            throw new SQLException("No existe la bbdd:" + unaRutaArchivoBD);
         }
 
+        PATH_DB = unaRutaArchivoBD;
     }
 
     public String getRutaArchivoBD() {
@@ -49,7 +53,7 @@ public abstract class Conexion {
 
     /**
      * Funcion que abre la conexion a la bbdd
-     * 
+     *
      * @return
      * @throws SQLException
      */
@@ -62,20 +66,17 @@ public abstract class Conexion {
 
     /**
      * Funcion que cierra la conexion de bbdd
-     * 
+     *
      * @throws SQLException
      */
-    public void cerrar() {
+    public void cerrar() throws SQLException {
         try {
-            Connection conn = getConnection();
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
-                connection = null;
+            if (connection != null || !connection.isClosed()) {
+                connection.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-}
 
+}

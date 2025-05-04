@@ -3,10 +3,12 @@ package es.ies.puerto.fate.controller.abstractas;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.fate.config.ConfigManager;
+import es.ies.puerto.fate.model.Conexion;
 import es.ies.puerto.fate.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AbstractasController {
-    protected UsuarioServiceModel usuarioServiceModel = new UsuarioServiceModel();
+public class AbstractasController extends Conexion{
+    protected UsuarioServiceModel usuarioServiceModel;
 
     private Properties propertiesIdioma;
 
@@ -31,6 +33,12 @@ public class AbstractasController {
 
     @FXML
     public Text textContrasenia;
+
+    @FXML
+    public Text textPassword;
+    
+    @FXML
+    public Text textPassword2;
 
     @FXML
     public PasswordField textFieldPassword;
@@ -77,7 +85,7 @@ public class AbstractasController {
     @FXML
     public Button buttonRegistrarEmail;
 
-    public void cambiarIdioma() {
+    public void cambiarIdioma() throws SQLException{
 
         if (!(textUsuario == null)) {
             textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
@@ -162,7 +170,7 @@ public class AbstractasController {
         return properties;
     }
 
-    public UsuarioServiceModel getUsuarioServiceModel() {
+    public UsuarioServiceModel getUsuarioServiceModel() throws SQLException{
         return usuarioServiceModel;
     }
 
@@ -170,9 +178,10 @@ public class AbstractasController {
          try {
             Stage stage = (Stage) boton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button+".fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(button);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -181,5 +190,9 @@ public class AbstractasController {
 
     public void paginaLogin(){
         cambiar(atrasButton, "login");
+    }
+
+    public void setUsuarioServiceModel(UsuarioServiceModel usuarioServiceModel) throws SQLException{
+        this.usuarioServiceModel = usuarioServiceModel;
     }
 }

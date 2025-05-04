@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="457.0" prefWidth="511.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.LoginController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="-40.0" layoutY="51.0" pickOnBounds="false" prefHeight="355.0" prefWidth="592.0" spacing="10.0" stylesheets="@../../../css/estilos.css">
+      <VBox alignment="TOP_CENTER" layoutX="-40.0" layoutY="51.0" pickOnBounds="false" prefHeight="355.0" prefWidth="592.0" spacing="10.0">
          <ComboBox fx:id="comboIdioma" onAction="#seleccionarIdiomaClick" prefWidth="150.0" promptText="idiomas" />
          <Text id="text" fx:id="textUsuario" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
             <TextField id="found" fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" promptText="Insertar Usuario" />

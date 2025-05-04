@@ -12,14 +12,14 @@ import es.ies.puerto.fate.model.*;
 public class UsuarioServiceModel extends Conexion {
 
     Set<UsuarioEntity> usuarioEntity;
-    public UsuarioServiceModel() {
+    public UsuarioServiceModel() throws SQLException {
         super();
         usuarioEntity = new HashSet(obtenerTodosUsuarios());
     }
 
 
-    public UsuarioEntity obtenerUsuarioPorEmail(String email, String contrasenia) {
-        String sql = "SELECT * FROM Usuario " + "where email= '" + email + "' and contrasenia = '" + contrasenia + "'";
+    public UsuarioEntity obtenerUsuarioPorEmail(String email, String contrasenia)  throws SQLException {
+        String sql = "SELECT * FROM usuario " + "where email= '" + email + "' and contrasenia = '" + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = obtenerUsuario(sql);
         if (usuarios.isEmpty()) {
             return null;
@@ -28,12 +28,12 @@ public class UsuarioServiceModel extends Conexion {
 
     }
 
-    public ArrayList<UsuarioEntity> obtenerTodosUsuarios() {
-        String sql = "SELECT * FROM Usuario";
+    public ArrayList<UsuarioEntity> obtenerTodosUsuarios() throws SQLException {
+        String sql = "SELECT * FROM usuario";
         return obtenerUsuario(sql);
     }
 
-    public ArrayList<UsuarioEntity> obtenerUsuario(String sql) {
+    public ArrayList<UsuarioEntity> obtenerUsuario(String sql) throws SQLException {
         ArrayList<UsuarioEntity> usuarios = new ArrayList<UsuarioEntity>();
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
@@ -55,7 +55,7 @@ public class UsuarioServiceModel extends Conexion {
         return usuarios;
     }
 
-    public UsuarioEntity obtenerUsuarioPorNombreUsuario(String nombreUsuario, String contrasenia) {
+    public UsuarioEntity obtenerUsuarioPorNombreUsuario(String nombreUsuario, String contrasenia) throws SQLException{
         String sql = "SELECT * FROM usuario WHERE nombreUsuario = '" + nombreUsuario + "' and contrasenia = '"
                 + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = obtenerUsuario(sql);
@@ -65,7 +65,7 @@ public class UsuarioServiceModel extends Conexion {
         return usuarios.get(0);
     }
 
-    public boolean aniadirUsuario(String nombreUsuario, String nombre, String contrasenia, String email) {
+    public boolean aniadirUsuario(String nombreUsuario, String nombre, String contrasenia, String email) throws SQLException{
         try {
             PreparedStatement sentencia = getConnection().prepareStatement("INSERT INTO usuario (nombreUsuario, nombre, contrasenia, email) values (?,?,?,?)");
             sentencia.setString(1, nombreUsuario);

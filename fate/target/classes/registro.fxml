@@ -4,43 +4,34 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="395.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.RegistroController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="395.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.RegistroController">
    <children>
-      <VBox id="box" alignment="CENTER" layoutX="6.0" layoutY="-70.0" prefHeight="800.0" prefWidth="383.0" spacing="20.0" stylesheets="@CSS/app-background.css">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button id="button" fx:id="atrasButton" mnemonicParsing="false" onAction="#volverAtrasClick" text="Atras">
-                     <HBox.margin>
-                        <Insets left="30.0" top="30.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <Text id="text" fx:id="textUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-            <TextField id="found" fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir usuario" />
-            <Text id="text" fx:id="textContrasenia" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
-            <PasswordField id="found" fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-            <Text id="text" fx:id="textContrasenia2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Contraseña" />
-            <PasswordField id="found" fx:id="textFieldPassword2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-            <Text id="text" fx:id="textNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-            <TextField id="found" fx:id="textFieldNombre" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir nombre" />
-            <Text id="text" fx:id="textEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-            <TextField id="found" fx:id="textFieldEmail" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
-            <Text id="text" fx:id="textEmail2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Email" />
-            <TextField id="found" fx:id="textFieldEmail2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
-            <Text id="error" fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <Button id="button" fx:id="buttonRegistrar" mnemonicParsing="false" onAction="#onClickRegistrar" text="Registrarse">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-               </Button>
-         </children>
-      </VBox>
+      <TextField id="found" fx:id="textFieldEmail2" layoutX="110.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
+      <Text id="text" fx:id="textEmail2" fill="WHITE" layoutX="151.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Email" />
+      <TextField id="found" fx:id="textFieldEmail" layoutX="112.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
+      <Text id="text" fx:id="textEmail" fill="WHITE" layoutX="172.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <Button id="button" fx:id="buttonRegistrar" layoutX="149.0" layoutY="466.0" mnemonicParsing="false" onAction="#onClickRegistrar" text="Registrarse" />
+      <TextField id="found" fx:id="textFieldNombre" layoutX="112.0" layoutY="207.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir nombre" />
+      <Text id="text" fx:id="textNombre" fill="WHITE" layoutX="162.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+      <Button id="button" fx:id="atrasButtonLogin" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#volverAtrasLoginClick" text="Atras login">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Text id="text" fx:id="textUsuario" fill="WHITE" layoutX="163.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+      <TextField id="found" fx:id="textFieldUsuario" layoutX="109.0" layoutY="268.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir usuario" />
+      <Text id="text" fx:id="textContrasenia" fill="WHITE" layoutX="156.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+      <PasswordField id="found" fx:id="textFieldPassword" layoutX="111.0" layoutY="329.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
+      <Text id="text" fx:id="textContrasenia2" layoutX="133.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Contraseña" />
+      <PasswordField id="found" fx:id="textFieldPassword2" layoutX="112.0" layoutY="392.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
+      <Text id="error" fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button id="button" fx:id="atrasButton" layoutX="295.0" layoutY="25.0" mnemonicParsing="false" onAction="#volverAtrasClick" text="Atras inicio">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
    </children>
 </Pane>

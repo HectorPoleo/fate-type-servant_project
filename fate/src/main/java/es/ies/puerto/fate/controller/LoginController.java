@@ -2,8 +2,8 @@ package es.ies.puerto.fate.controller;
 
 import java.sql.SQLException;
 
-import es.ies.puerto.fate.abstractas.AbstractController;
 import es.ies.puerto.fate.config.ConfigManager;
+import es.ies.puerto.fate.controller.abstractas.AbstractasController;
 import es.ies.puerto.fate.model.UsuarioEntity;
 import es.ies.puerto.fate.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class LoginController extends AbstractController {
+public class LoginController extends AbstractasController {
 
     private final String pathFichero = "src/main/resources/";
     private final String ficheroStr = "idioma-";
@@ -28,10 +28,10 @@ public class LoginController extends AbstractController {
     private Text textFieldMensaje;
 
     @FXML
-    private Button openInicioButton;
+    private Button buttonIniciarSesion;
 
     @FXML
-    private Button openRegistrarButton;
+    private Button buttonRegistrar;
 
     @FXML
     private ComboBox comboIdioma;
@@ -39,7 +39,7 @@ public class LoginController extends AbstractController {
     private UsuarioEntity user;
     UsuarioServiceModel usuarioServiceModel;
 
-    public LoginController() {
+    public LoginController() throws SQLException {
         usuarioServiceModel = new UsuarioServiceModel();
     }
 
@@ -48,27 +48,28 @@ public class LoginController extends AbstractController {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException {
         comboIdioma.getItems().add("es");
         comboIdioma.getItems().add("en");
         comboIdioma.getItems().add("fr");
         cargarIdioma("es");
         cambiarIdioma();
+        this.usuarioServiceModel = new UsuarioServiceModel();
     }
 
     @FXML
-    protected void seleccionarIdiomaClick() {
+    protected void seleccionarIdiomaClick() throws SQLException {
         String idioma = comboIdioma.getValue().toString();
         cargarIdioma(idioma);
         cambiarIdioma();
+        this.usuarioServiceModel = new UsuarioServiceModel();
+        conectar();
 
     }
 
     private void cargarIdioma(String idioma) {
-
         String path = pathFichero + ficheroStr + idioma + ".properties";
         ConfigManager.ConfigProperties.setPath(path);
-
     }
 
     @FXML
@@ -92,11 +93,11 @@ public class LoginController extends AbstractController {
             textFieldMensaje.setText("Credenciales invalidas");
             return;
         }
-        cambiar(openInicioButton, "app-init");
+        cambiar(buttonIniciarSesion, "/app-init");
     }
 
     @FXML
     protected void openRegistrarClick() {
-        cambiar(openRegistrarButton, "registro");
+        cambiar(buttonRegistrar, "/registro");
     }
 }

@@ -1,11 +1,13 @@
 package es.ies.puerto.fate.controller;
 
+import java.io.IOException;
+
 import es.ies.puerto.fate.controller.abstractas.AbstractasController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class InicioController extends AbstractasController{
-    
+
     @FXML
     private Button loginButton;
 
@@ -13,12 +15,12 @@ public class InicioController extends AbstractasController{
     private Button registroButton;
 
     @FXML
-    protected void onLoginClick() {
-        cambiar(loginButton, "login");
+    protected void onLoginClick() throws IOException {
+        cambiar(loginButton, "/login");
     }
 
     @FXML
-    protected void onRegistroButton() {
-        cambiar(registroButton, "registro");
+    protected void onRegistroButton() throws IOException {
+        cambiar(registroButton, "/registro");
     }
 }

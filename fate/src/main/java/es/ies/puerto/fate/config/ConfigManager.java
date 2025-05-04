@@ -8,7 +8,7 @@ import java.util.Properties;
 public class ConfigManager {
     public static class ConfigProperties {
 
-        static String path;
+        static String path = "fate/src/main/resources/bbdd/idioma-es.properties";
 
         private static final Properties properties = new Properties();
 

@@ -1,5 +1,6 @@
 package es.ies.puerto.fate.controller;
 
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,43 +9,23 @@ import es.ies.puerto.fate.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class RegistroController extends AbstractasController{
-     
-    @FXML
-    public TextField textFiledUsuario;
-
-    @FXML
-    public Text textMensaje;
 
     @FXML
     public Button buttonRegistrar;
 
-    @FXML 
+    @FXML
     public PasswordField textFieldPassword;
 
-    @FXML 
+    @FXML
     public PasswordField textFieldPasswordRepit;
 
     @FXML
-    public Text textUsuario;
-
-    @FXML
-    public Text textNombre;
-
-    @FXML
-    public Text textContrasenia;
-
-    @FXML
-    public Text textEmail;
-
-    @FXML
-    public Text textEmail2;
-
-    @FXML
     public Button atrasButton;
+
+    @FXML
+    public Button atrasButtonLogin;
 
     UsuarioServiceModel usuarioServiceModel;
 
@@ -52,14 +33,14 @@ public class RegistroController extends AbstractasController{
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException{
         cambiarIdioma();
     }
 
     @FXML
-    protected void onClickRegistrar()  {
+    protected void onClickRegistrar()  throws SQLException{
         usuarioServiceModel = getUsuarioServiceModel();
-        
+
         if (textFieldUsuario == null || textFieldUsuario.getText().isEmpty()) {
             textMensaje.setText("¡El nombre de usuario no puede ser nulo o vacio!");
             return;
@@ -113,7 +94,12 @@ public class RegistroController extends AbstractasController{
     }
 
         @FXML
-    protected void volverAtrasClick(){
+    protected void volverAtrasLoginClick(){
         paginaLogin();
+    }
+
+        @FXML
+    protected void volverAtrasClick(){
+        cambiar(atrasButton, "/app-init");
     }
 }
