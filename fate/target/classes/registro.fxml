@@ -27,7 +27,7 @@
       <PasswordField id="found" fx:id="textFieldPassword" layoutX="111.0" layoutY="329.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
       <Text id="text" fx:id="textContrasenia2" layoutX="133.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Contraseña" />
       <PasswordField id="found" fx:id="textFieldPassword2" layoutX="112.0" layoutY="392.0" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-      <Text id="error" fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text id="error" fx:id="textMensaje" layoutX="161.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="43.845703125" />
       <Button id="button" fx:id="atrasButton" layoutX="295.0" layoutY="25.0" mnemonicParsing="false" onAction="#volverAtrasClick" text="Atras inicio">
          <opaqueInsets>
             <Insets />

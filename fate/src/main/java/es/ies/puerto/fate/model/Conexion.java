@@ -14,7 +14,7 @@ public abstract class Conexion {
      * Constructor vacio
      */
     public Conexion() {
-        PATH_DB = "fate/src/main/resources/bbdd/usuarios.db";
+        PATH_DB = "src/main/resources/bbdd/usuarios.db";
     }
 
     /**
@@ -41,7 +41,7 @@ public abstract class Conexion {
 
     public Connection getConnection() {
         try {
-            if (connection == null) {
+            if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection("jdbc:sqlite:" + PATH_DB);
             }
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public abstract class Conexion {
      * @throws SQLException
      */
     public Connection conectar() throws SQLException {
-        if (connection == null) {
+        if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection("jdbc:sqlite:" + PATH_DB);
         }
         return connection;

@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 
 public class LoginController extends AbstractasController {
 
-    private final String pathFichero = "src/main/resources/";
+    private final String pathFichero = "src/main/resources/bbdd/";
     private final String ficheroStr = "idioma-";
 
     @FXML
@@ -63,7 +63,6 @@ public class LoginController extends AbstractasController {
         cargarIdioma(idioma);
         cambiarIdioma();
         this.usuarioServiceModel = new UsuarioServiceModel();
-        conectar();
 
     }
 

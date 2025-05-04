@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="346.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.OrigenController">
+   <children>
+      <Button fx:id="volverAtrasButton" layoutX="132.0" layoutY="364.0" mnemonicParsing="false" onAction="#volverAtrasClick" text="Volver Atras" />
+      <Hyperlink fx:id="categoriaLink" layoutX="91.0" layoutY="38.0" onAction="#categoriaClick" text="Fate/Stay Night">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</Pane>

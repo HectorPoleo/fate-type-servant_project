@@ -8,10 +8,23 @@ import java.util.Properties;
 public class ConfigManager {
     public static class ConfigProperties {
 
-        static String path = "fate/src/main/resources/bbdd/idioma-es.properties";
+        private static String path;
+
+        private static int idPersonaje;
+
+        public static int getId(){
+            return idPersonaje;
+        }
+
+        public static void setId(int id){
+            idPersonaje = id;
+        }
+
+        public static String getPath(){
+            return path;
+        }
 
         private static final Properties properties = new Properties();
-
         /**
          * Metodo estatico para obtener una propiedad
          **/
@@ -22,14 +35,13 @@ public class ConfigManager {
         public static void setPath(String rutaPath) {
             System.out.println("Dentro del setPath");
             File file = new File(rutaPath);
-
             if (!file.exists() || !file.isFile()) {
                 System.out.println("Path:" + file.getAbsolutePath());
             }
             path = rutaPath;
+
             try {
                 System.out.println("Dentro del ConfigProperties");
-
                 FileInputStream input = new FileInputStream(path);
                 InputStreamReader isr = new InputStreamReader(input, "UTF-8");
                 properties.load(isr);

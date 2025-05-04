@@ -188,11 +188,28 @@ public class AbstractasController extends Conexion{
         }
     }
 
+    public void cambiarLink (Hyperlink boton, String button) {
+        try {
+            System.out.println("XD");
+            Stage stage = (Stage) boton.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button+".fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle(button);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void paginaLogin(){
-        cambiar(atrasButton, "login");
+        cambiar(atrasButton, "/login");
     }
 
     public void setUsuarioServiceModel(UsuarioServiceModel usuarioServiceModel) throws SQLException{
         this.usuarioServiceModel = usuarioServiceModel;
     }
+
+    
 }

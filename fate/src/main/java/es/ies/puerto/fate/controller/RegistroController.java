@@ -39,8 +39,8 @@ public class RegistroController extends AbstractasController{
 
     @FXML
     protected void onClickRegistrar()  throws SQLException{
-        usuarioServiceModel = getUsuarioServiceModel();
-
+        usuarioServiceModel = new UsuarioServiceModel();
+        
         if (textFieldUsuario == null || textFieldUsuario.getText().isEmpty()) {
             textMensaje.setText("¡El nombre de usuario no puede ser nulo o vacio!");
             return;
@@ -67,7 +67,7 @@ public class RegistroController extends AbstractasController{
         }
 
         String patron = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-
+        
         Pattern p = Pattern.compile(patron);
         Matcher m = p.matcher(textFieldEmail.getText());
         if (!m.matches()) {
@@ -79,7 +79,7 @@ public class RegistroController extends AbstractasController{
             textMensaje.setText("El email ya esta registrado.");
             return;
         }
-
+        
         if (!textFieldPassword.getText().equals(textFieldPassword2.getText())) {
             textMensaje.setText("¡La passwords no son iguales!");
             return;
@@ -93,7 +93,7 @@ public class RegistroController extends AbstractasController{
         }
     }
 
-        @FXML
+    @FXML
     protected void volverAtrasLoginClick(){
         paginaLogin();
     }
