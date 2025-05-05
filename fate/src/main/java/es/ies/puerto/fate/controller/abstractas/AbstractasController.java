@@ -190,7 +190,6 @@ public class AbstractasController extends Conexion{
 
     public void cambiarLink (Hyperlink boton, String button) {
         try {
-            System.out.println("XD");
             Stage stage = (Stage) boton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button+".fxml"));
             Scene scene = new Scene(fxmlLoader.load());
