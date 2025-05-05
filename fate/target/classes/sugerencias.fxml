@@ -6,16 +6,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="417.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.SugerenciasController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="417.0" stylesheets="@CSS/app-background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.fate.controller.SugerenciasController">
    <children>
       <Button fx:id="inicioButton" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onAction="#inicioClick" text="Inicio" />
-      <Text fill="#0a7bfa" layoutX="101.0" layoutY="116.0" stroke="BLACK" strokeLineCap="BUTT" strokeMiterLimit="15.0" strokeType="OUTSIDE" strokeWidth="5.0" text="SUGERENCIAS">
+      <Text fill="#0a7bfa" layoutX="118.0" layoutY="102.0" stroke="BLACK" strokeLineCap="BUTT" strokeMiterLimit="15.0" strokeType="OUTSIDE" strokeWidth="5.0" text="SUGERENCIAS">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Text>
-      <TextField layoutX="102.0" layoutY="157.0" prefHeight="284.0" prefWidth="214.0" />
+      <TextField fx:id="textId" alignment="TOP_LEFT" layoutX="102.0" layoutY="129.0" prefHeight="284.0" prefWidth="214.0" />
       <Button fx:id="sugereciaButton" layoutX="177.0" layoutY="480.0" mnemonicParsing="false" onAction="#sugerenciaClick" text="Añadir" />
+      <Text fx:id="mensaje" fill="#1601ff" layoutX="118.0" layoutY="444.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" wrappingWidth="181.07666015625" />
    </children>
 </Pane>

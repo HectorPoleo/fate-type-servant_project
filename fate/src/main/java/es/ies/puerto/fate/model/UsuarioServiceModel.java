@@ -17,6 +17,15 @@ public class UsuarioServiceModel extends Conexion {
         usuarioEntity = new HashSet(obtenerTodosUsuarios());
     }
 
+    public UsuarioEntity obtenerUsuarioSOLOPorEmail(String email)  throws SQLException {
+        String sql = "SELECT * FROM usuario " + "where email= '" + email + "'";
+        ArrayList<UsuarioEntity> usuarios = obtenerUsuario(sql);
+        if (usuarios.isEmpty()) {
+            return null;
+        }
+        return usuarios.get(0);
+
+    }
 
     public UsuarioEntity obtenerUsuarioPorEmail(String email, String contrasenia)  throws SQLException {
         String sql = "SELECT * FROM usuario " + "where email= '" + email + "' and contrasenia = '" + contrasenia + "'";

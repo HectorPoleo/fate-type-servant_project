@@ -34,6 +34,9 @@ public class LoginController extends AbstractasController {
     private Button buttonRegistrar;
 
     @FXML
+    private Button recuPasswordButton;
+
+    @FXML
     private ComboBox comboIdioma;
 
     private UsuarioEntity user;
@@ -91,11 +94,16 @@ public class LoginController extends AbstractasController {
             textFieldMensaje.setText("Credenciales invalidas");
             return;
         }
-        cambiar(buttonIniciarSesion, "/app-init");
+        cambiar(buttonIniciarSesion, "/sugerencias");
     }
 
     @FXML
     protected void openRegistrarClick() {
         cambiar(buttonRegistrar, "/registro");
+    }
+
+    @FXML
+    protected void recuPasswordClick(){
+        cambiar(recuPasswordButton, "/recuPassword");
     }
 }

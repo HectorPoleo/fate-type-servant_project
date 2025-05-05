@@ -3,6 +3,7 @@ package es.ies.puerto.fate.controller;
 import java.sql.SQLException;
 
 import es.ies.puerto.fate.controller.abstractas.AbstractasController;
+import es.ies.puerto.fate.model.SugerenciaService;
 import es.ies.puerto.fate.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,14 +15,14 @@ public class SugerenciasController extends AbstractasController{
     public Button inicioButton;
 
     @FXML
-    public TextField textFieldMesage;
+    public TextField textId;
 
     @FXML
     public Text mensaje;
 
     @FXML
     public void inicioClick(){
-        cambiar(inicioButton, "app-init");
+        cambiar(inicioButton, "/app-init");
     }
 
     public SugerenciasController(){
@@ -30,10 +31,14 @@ public class SugerenciasController extends AbstractasController{
     @FXML
     public void sugerenciaClick() throws SQLException{
         usuarioServiceModel = new UsuarioServiceModel();
+        String sugereciasText;
 
-        if(textFieldMesage == null || textFieldMesage.getText().isEmpty()){
+        if(textId == null || textId.getText().isEmpty()){
             mensaje.setText("La sugerencia es invalida");
             return;
         }
+        sugereciasText = textId.getText();
+        mensaje.setText("Se ha añadido la sugerencia");
+        new SugerenciaService().aniadirSugerencia(sugereciasText);
     }
 }

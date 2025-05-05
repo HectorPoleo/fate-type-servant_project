@@ -12,7 +12,7 @@ public class SugerenciaService extends Conexion{
     Set<SugerenciaEntity> sugerencias; 
 
     public ArrayList<SugerenciaEntity> obtenerTodasSugerencias() throws SQLException {
-        String sql = "SELECT * FROM sugerencias";
+        String sql = "SELECT * FROM sugerencia";
         return obtenerSugerencia(sql);
     }
 
@@ -45,17 +45,27 @@ public class SugerenciaService extends Conexion{
         return sugerencias.get(0);
     }
 
-    public boolean aniadirSugerencia(String sugerencia) throws SQLException{
+    public boolean aniadirSugerencia(String sugerencia) {
         try {
             PreparedStatement sentencia = getConnection().prepareStatement("INSERT INTO sugerencia (sugerencia) values (?)");
             sentencia.setString(1, sugerencia);
             sentencia.execute();
             return true;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        } finally{
-            cerrar();
+        }
+    }
+
+    public boolean deleteSugerencia(String sugerencia) {
+        try {
+            PreparedStatement sentencia = getConnection().prepareStatement("DELETE FROM sugerencia WHERE values (?)");
+            sentencia.setString(1, sugerencia);
+            sentencia.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

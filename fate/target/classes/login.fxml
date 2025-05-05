@@ -25,6 +25,7 @@
          </Text>
             <Button id="button" fx:id="buttonIniciarSesion" alignment="TOP_CENTER" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="163.0" text="Iniciar sesion" textAlignment="CENTER" />
             <Button id="button" fx:id="buttonRegistrar" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#openRegistrarClick" text="Registrarse" />
+         <Button fx:id="recuPasswordButton" mnemonicParsing="false" onAction="#recuPasswordClick" text="Recuperar Contraseña" />
          <padding>
             <Insets top="20.0" />
          </padding>
