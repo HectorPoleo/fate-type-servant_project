@@ -22,26 +22,42 @@ public class InicioController extends AbstractasController{
     @FXML
     private Button registroButton;
 
+    /**
+     * Metodo para cambiar a la pagina de login
+     */
     @FXML
     protected void onLoginClick() throws IOException {
         cambiar(loginButton, "/login");
     }
 
+    /**
+     * Metodo para cambiar a la pagina de registro
+     */
     @FXML
     protected void onRegistroButton() throws IOException {
         cambiar(registroButton, "/registro");
     }
 
+    /**
+     * Metodo para cambiar a la pagina de categoria
+     */
     @FXML
     protected void categoriaCilck() throws IOException {
         cambiar(categoriaButton, "/categoria");
     }
 
+    /**
+     * Metodo para cambiar a la pagina de origen
+     */
     @FXML
     protected void origenClick() throws IOException {
         cambiar(origenButton, "/origen");
     }
 
+    /**
+     * Metodo para inicializar la base de datos
+     * @throws SQLException
+     */
     @FXML
     public void initialize() throws SQLException {
         if(ConfigManager.ConfigProperties.getPath() == null){

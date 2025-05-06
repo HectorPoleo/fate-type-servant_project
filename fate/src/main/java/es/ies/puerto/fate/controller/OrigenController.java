@@ -12,11 +12,17 @@ public class OrigenController extends AbstractasController{
     @FXML
     private Hyperlink categoriaLink;
 
+    /**
+     * Metodo para volver a la pagina principal
+     */
     @FXML
     protected void volverAtrasClick(){
         cambiar(volverAtrasButton, "/app-init");
     }
 
+    /**
+     * Metodo para ir a categoria desde origen
+     */
     @FXML
     public void categoriaClick() {
         cambiarLink(categoriaLink, "/categoria");

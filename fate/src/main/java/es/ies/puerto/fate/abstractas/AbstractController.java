@@ -23,6 +23,9 @@ public class AbstractController {
 
     File file = new File(Path_Db);
 
+    /**
+     * Clase del abstractController
+     */
     public AbstractController() {
         try {
             usuarioServiceModel = new UsuarioServiceModel();
@@ -37,27 +40,56 @@ public class AbstractController {
     @FXML
     public Text textContrasenia;
 
+    /**
+     * Contructor del cambiarIdioma
+     */
     public void cambiarIdioma() {
         textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
         textContrasenia.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia"));
     }
 
+    /**
+     * Get del UsuarioServiceModel
+     * 
+     * @return
+     */
     public UsuarioServiceModel getUsuarioServiceModel() {
         return this.usuarioServiceModel;
     }
 
+    /**
+     * Get del properties
+     * 
+     * @return
+     */
     public Properties getPropertiesIdioma() {
         return this.propertiesIdioma;
     }
 
+    /**
+     * Get de Usuario
+     * 
+     * @return
+     */
     public Text getTextUsuario() {
         return this.textUsuario;
     }
 
+    /**
+     * Get de contraseñia
+     * 
+     * @return
+     */
     public Text getTextContrasenia() {
         return this.textContrasenia;
     }
 
+    /**
+     * Metodo para cambiar de pagina
+     * 
+     * @param boton
+     * @param button
+     */
     public void cambiar(Button boton, String button) {
         try {
             Stage stage = (Stage) boton.getScene().getWindow();

@@ -20,6 +20,9 @@ public class SugerenciasController extends AbstractasController{
     @FXML
     public Text mensaje;
 
+    /**
+     * Metodo para ir a la pagina app-init
+     */
     @FXML
     public void inicioClick(){
         cambiar(inicioButton, "/app-init");
@@ -28,6 +31,10 @@ public class SugerenciasController extends AbstractasController{
     public SugerenciasController(){
     }
 
+    /**
+     * Metodo para añadir sugerencias a la base de datos sugerencia
+     * @throws SQLException
+     */
     @FXML
     public void sugerenciaClick() throws SQLException{
         usuarioServiceModel = new UsuarioServiceModel();

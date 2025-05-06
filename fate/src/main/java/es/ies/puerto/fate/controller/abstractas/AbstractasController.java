@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AbstractasController extends Conexion{
+public class AbstractasController extends Conexion {
     protected UsuarioServiceModel usuarioServiceModel;
 
     private Properties propertiesIdioma;
@@ -36,7 +36,7 @@ public class AbstractasController extends Conexion{
 
     @FXML
     public Text textPassword;
-    
+
     @FXML
     public Text textPassword2;
 
@@ -85,7 +85,12 @@ public class AbstractasController extends Conexion{
     @FXML
     public Button buttonRegistrarEmail;
 
-    public void cambiarIdioma() throws SQLException{
+    /**
+     * metodo para cambiar el texto de los idiomas
+     * 
+     * @throws SQLException
+     */
+    public void cambiarIdioma() throws SQLException {
 
         if (!(textUsuario == null)) {
             textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
@@ -135,14 +140,31 @@ public class AbstractasController extends Conexion{
         }
     }
 
+    /**
+     * Set del properties
+     * 
+     * @param properties
+     */
     public void setpropertiesIdioma(Properties properties) {
         propertiesIdioma = properties;
     }
 
+    /**
+     * Get del properties
+     * 
+     * @return
+     */
     public Properties getPropertiesIdioma() {
         return propertiesIdioma;
     }
 
+    /**
+     * Metodo para cargar los idiomas
+     * 
+     * @param nombreFichero
+     * @param idioma
+     * @return
+     */
     public Properties loadIdioma(String nombreFichero, String idioma) {
         Properties properties = new Properties();
 
@@ -170,28 +192,25 @@ public class AbstractasController extends Conexion{
         return properties;
     }
 
-    public UsuarioServiceModel getUsuarioServiceModel() throws SQLException{
+    /**
+     * Get del UsuarioServiceModel
+     * 
+     * @return
+     * @throws SQLException
+     */
+    public UsuarioServiceModel getUsuarioServiceModel() throws SQLException {
         return usuarioServiceModel;
     }
 
-        public void cambiar(Button boton, String button) {
-         try {
-            Stage stage = (Stage) boton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button+".fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle(button);
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void cambiarLink (Hyperlink boton, String button) {
+    /**
+     * Metodo para cambiar las paginas
+     * @param boton
+     * @param button
+     */
+    public void cambiar(Button boton, String button) {
         try {
             Stage stage = (Stage) boton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button+".fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button + ".fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(button);
             stage.setScene(scene);
@@ -202,13 +221,39 @@ public class AbstractasController extends Conexion{
         }
     }
 
-    public void paginaLogin(){
+    /**
+     * Metodo para cambiar los hypervinculos
+     * @param boton
+     * @param button
+     */
+    public void cambiarLink(Hyperlink boton, String button) {
+        try {
+            Stage stage = (Stage) boton.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(button + ".fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle(button);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Metodo para cambiar al login
+     */
+    public void paginaLogin() {
         cambiar(atrasButton, "/login");
     }
 
-    public void setUsuarioServiceModel(UsuarioServiceModel usuarioServiceModel) throws SQLException{
+    /**
+     * Set del UsuarioServiceModel
+     * @param usuarioServiceModel
+     * @throws SQLException
+     */
+    public void setUsuarioServiceModel(UsuarioServiceModel usuarioServiceModel) throws SQLException {
         this.usuarioServiceModel = usuarioServiceModel;
     }
 
-    
 }

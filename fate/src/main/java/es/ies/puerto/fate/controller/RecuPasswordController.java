@@ -23,11 +23,17 @@ public class RecuPasswordController extends AbstractasController{
     @FXML
     public Text advertencia;
 
+    /**
+     * Metodo que llama a la clase cmabiar de los metodos abstractos para volver al login
+     */
     @FXML
     public void volverClick(){
         cambiar(volverButton, "/login");
     }
 
+    /**
+     * Metodo para recuperar la contrasenia de la base de datos
+     */
     @FXML
     public void  recuperarClick() throws SQLException{
         if(emailRecu.getText() == null || emailRecu.getText().isEmpty()){

@@ -1,14 +1,10 @@
 package es.ies.puerto.fate.controller;
 
-import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.fate.abstractas.AbstractController;
 import es.ies.puerto.fate.model.UsuarioEntity;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class PerfilUsuarioController extends AbstractController {
     @FXML
@@ -28,6 +24,9 @@ public class PerfilUsuarioController extends AbstractController {
 
     UsuarioEntity usuarioEntity;
 
+    /**
+     * Metodo para inicializar los idiomas
+     */
     @FXML
     public void initialize() {
         cambiarIdioma();
@@ -37,11 +36,18 @@ public class PerfilUsuarioController extends AbstractController {
         System.out.println("Second");
     }
 
+    /**
+     * Metodo para cargar los datos
+     * @param usuario
+     */
     public void setUsuario(UsuarioEntity usuario) {
         this.usuarioEntity = usuario;
         cargarDatos();
     }
 
+    /**
+     * Meetodo para comprobar que los datos no son null
+     */
     private void cargarDatos() {
         if (usuarioEntity != null) {
             textFieldUser.setText(usuarioEntity.getNombreUsuario());
@@ -51,19 +57,12 @@ public class PerfilUsuarioController extends AbstractController {
         }
     }
 
+    /**
+     * Metodo para volver atras
+     */
     @FXML
     protected void onClickVolver() {
-        try {
-            Stage stage = (Stage) atrasButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-            stage.setTitle("Pantalla Usuario");
-            stage.setResizable(false);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        cambiar(atrasButton, "/login");
     }
 
 }

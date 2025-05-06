@@ -12,19 +12,35 @@ public class ConfigManager {
 
         private static int idPersonaje;
 
-        public static int getId(){
+        /**
+         * Get del id
+         * @return
+         */
+        public static int getId() {
             return idPersonaje;
         }
 
-        public static void setId(int id){
+        /**
+         * Set del id
+         * @param id
+         */
+        public static void setId(int id) {
             idPersonaje = id;
         }
 
-        public static String getPath(){
+        /**
+         * Get del path
+         * @return
+         */
+        public static String getPath() {
             return path;
         }
 
+        /**
+         * Iniciar el properties
+         */
         private static final Properties properties = new Properties();
+
         /**
          * Metodo estatico para obtener una propiedad
          **/
@@ -32,6 +48,10 @@ public class ConfigManager {
             return properties.getProperty(key);
         }
 
+        /**
+         * Set del path
+         * @param rutaPath
+         */
         public static void setPath(String rutaPath) {
             System.out.println("Dentro del setPath");
             File file = new File(rutaPath);

@@ -27,6 +27,10 @@ public class PersonajeController extends AbstractasController {
     @FXML
     private ImageView image;
 
+    /**
+     * Metodo para inicializar tanto el texto, como los nombres e imagenes de la base de datos personaje
+     * @throws SQLException
+     */
     public void initialize() throws SQLException{
         PersonajeEntity personaje = new PersonajeService().obtenerPersonajePorID(ConfigManager.ConfigProperties.getId());
         info.setText(personaje.getDescripcion());
@@ -34,6 +38,9 @@ public class PersonajeController extends AbstractasController {
         image.setImage(new Image("file:src/main/resources/Image/" + personaje.getImagen()));
     }
 
+    /**
+     * Metodo para volver atras
+     */
     @FXML
     protected void volverClick(){
         cambiar(volverAtras, "/categoria");

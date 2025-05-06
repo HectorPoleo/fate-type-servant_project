@@ -32,11 +32,19 @@ public class RegistroController extends AbstractasController{
     public RegistroController(){
     }
 
+    /**
+     * Metodo para inicializar los idiomas
+     * @throws SQLException
+     */
     @FXML
     public void initialize() throws SQLException{
         cambiarIdioma();
     }
 
+    /**
+     * Metodo que verifica los datos del registro para añadirlo a la base de datos
+     * @throws SQLException
+     */
     @FXML
     protected void onClickRegistrar()  throws SQLException{
         usuarioServiceModel = new UsuarioServiceModel();
@@ -93,11 +101,17 @@ public class RegistroController extends AbstractasController{
         }
     }
 
+    /**
+     * Metodo para volver al login
+     */
     @FXML
     protected void volverAtrasLoginClick(){
         paginaLogin();
     }
 
+    /**
+     * Metodo para ir a la pagina principal de la app
+     */
         @FXML
     protected void volverAtrasClick(){
         cambiar(atrasButton, "/app-init");

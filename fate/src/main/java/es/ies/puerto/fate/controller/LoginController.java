@@ -42,14 +42,25 @@ public class LoginController extends AbstractasController {
     private UsuarioEntity user;
     UsuarioServiceModel usuarioServiceModel;
 
+    /**
+     * Metodo para iniciar usuarioServiceModel
+     * @throws SQLException
+     */
     public LoginController() throws SQLException {
         usuarioServiceModel = new UsuarioServiceModel();
     }
 
+    /**
+     * Set del usuario
+     */
     public void setUsuario(UsuarioEntity usuario) {
         this.user = usuario;
     }
 
+    /**
+     * Metodo para inicializar tanto los idiomas como el usuarioServiceModel
+     * @throws SQLException
+     */
     @FXML
     public void initialize() throws SQLException {
         comboIdioma.getItems().add("es");
@@ -59,6 +70,10 @@ public class LoginController extends AbstractasController {
         this.usuarioServiceModel = new UsuarioServiceModel();
     }
 
+    /**
+     * Metodo para seleccionar los idiomas disponibles
+     * @throws SQLException
+     */
     @FXML
     protected void seleccionarIdiomaClick() throws SQLException {
         String idioma = comboIdioma.getValue().toString();
@@ -68,11 +83,19 @@ public class LoginController extends AbstractasController {
 
     }
 
+    /**
+     * Metodo para cargar los idiomas
+     * @param idioma
+     */
     private void cargarIdioma(String idioma) {
         String path = pathFichero + ficheroStr + idioma + ".properties";
         ConfigManager.ConfigProperties.setPath(path);
     }
 
+    /**
+     * Metodo para verificar que el login es correcto y mandarte a la pantalla de sugerencias
+     * @throws SQLException
+     */
     @FXML
     protected void onLoginButtonClick() throws SQLException {
 
@@ -97,11 +120,17 @@ public class LoginController extends AbstractasController {
         cambiar(buttonIniciarSesion, "/sugerencias");
     }
 
+    /**
+     * Metodo para cambiar a la pagina de registro
+     */
     @FXML
     protected void openRegistrarClick() {
         cambiar(buttonRegistrar, "/registro");
     }
 
+    /**
+     * Metodo para cambiar a la pagina de recuPassword
+     */
     @FXML
     protected void recuPasswordClick(){
         cambiar(recuPasswordButton, "/recuPassword");
