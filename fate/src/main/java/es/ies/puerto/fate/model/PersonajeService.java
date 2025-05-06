@@ -7,13 +7,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PersonajeService extends Conexion{
-    
+public class PersonajeService extends Conexion {
+
     Set<PersonajeEntity> personajeEntity;
+
     public PersonajeService() throws SQLException {
         super();
     }
 
+    /**
+     * Metodo para obtener personaje
+     * @param sql
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<PersonajeEntity> obtenerPersonaje(String sql) throws SQLException {
         ArrayList<PersonajeEntity> peersonajes = new ArrayList<PersonajeEntity>();
         try {
@@ -25,7 +32,7 @@ public class PersonajeService extends Conexion{
                 String usuarioStr = resultado.getString("personajeNombre");
                 String infoStr = resultado.getString("personajeInfo");
                 String imageStr = resultado.getString("personajeImage");
-                PersonajeEntity personajeModel = new PersonajeEntity(idInt,usuarioStr, infoStr, imageStr);
+                PersonajeEntity personajeModel = new PersonajeEntity(idInt, usuarioStr, infoStr, imageStr);
                 peersonajes.add(personajeModel);
             }
         } catch (Exception e) {
@@ -36,12 +43,23 @@ public class PersonajeService extends Conexion{
         return peersonajes;
     }
 
+    /**
+     * Metodo para obtener todos los Personajes
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<PersonajeEntity> obtenerTodosPersonajes() throws SQLException {
         String sql = "SELECT * FROM personaje";
         return obtenerPersonaje(sql);
     }
 
-    public PersonajeEntity obtenerPersonajePorID(Integer ID) throws SQLException{
+    /**
+     * Metodo para obtener personajes por id
+     * @param ID
+     * @return
+     * @throws SQLException
+     */
+    public PersonajeEntity obtenerPersonajePorID(Integer ID) throws SQLException {
         String sql = "SELECT * FROM personaje WHERE ID = '" + ID + "'";
         ArrayList<PersonajeEntity> personajes = obtenerPersonaje(sql);
         if (personajes.isEmpty()) {

@@ -12,24 +12,27 @@ public class UsuarioEntity {
     /**
      * Constructor vacio
      */
-    public UsuarioEntity(){}
+    public UsuarioEntity() {
+    }
 
     /**
      * Constructor con el atributo principal de la clase
+     * 
      * @param email de usuario
      */
-    public UsuarioEntity(String email){
+    public UsuarioEntity(String email) {
         this.email = email;
     }
 
     /**
      * Constructor de los atributos de la clase
+     * 
      * @param nombreUsuario nombre de usuario
-     * @param contrasenia contrasenia del usuario
-     * @param nombre nombre del usuario
-     * @param email email del usuario
+     * @param contrasenia   contrasenia del usuario
+     * @param nombre        nombre del usuario
+     * @param email         email del usuario
      */
-    public UsuarioEntity(String nombreUsuario, String contrasenia,String nombre,String email ){
+    public UsuarioEntity(String nombreUsuario, String contrasenia, String nombre, String email) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -96,10 +99,9 @@ public class UsuarioEntity {
     @Override
     public String toString() {
         return getNombreUsuario() + "," +
-            getContrasenia() + "," +
-            getNombre() + "," +
-            getEmail();
+                getContrasenia() + "," +
+                getNombre() + "," +
+                getEmail();
     }
 
 }
-

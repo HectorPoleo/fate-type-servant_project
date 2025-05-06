@@ -28,11 +28,14 @@ public class PersonajeController extends AbstractasController {
     private ImageView image;
 
     /**
-     * Metodo para inicializar tanto el texto, como los nombres e imagenes de la base de datos personaje
+     * Metodo para inicializar tanto el texto, como los nombres e imagenes de la
+     * base de datos personaje
+     * 
      * @throws SQLException
      */
-    public void initialize() throws SQLException{
-        PersonajeEntity personaje = new PersonajeService().obtenerPersonajePorID(ConfigManager.ConfigProperties.getId());
+    public void initialize() throws SQLException {
+        PersonajeEntity personaje = new PersonajeService()
+                .obtenerPersonajePorID(ConfigManager.ConfigProperties.getId());
         info.setText(personaje.getDescripcion());
         personajeNombre.setText(personaje.getNombre());
         image.setImage(new Image("file:src/main/resources/Image/" + personaje.getImagen()));
@@ -42,7 +45,7 @@ public class PersonajeController extends AbstractasController {
      * Metodo para volver atras
      */
     @FXML
-    protected void volverClick(){
+    protected void volverClick() {
         cambiar(volverAtras, "/categoria");
     }
 }

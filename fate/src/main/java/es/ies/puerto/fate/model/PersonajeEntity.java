@@ -1,4 +1,5 @@
 package es.ies.puerto.fate.model;
+
 import java.util.Objects;
 
 public class PersonajeEntity {
@@ -8,13 +9,29 @@ public class PersonajeEntity {
     private String descripcion;
     private String imagen;
 
+    /**
+     * Constructor vacio
+     */
     public PersonajeEntity() {
     }
 
+    /**
+     * Constructor con id
+     * 
+     * @param id
+     */
     public PersonajeEntity(Integer id) {
         this.id = id;
     }
 
+    /**
+     * Constructor de PersonajeEntity
+     * 
+     * @param id
+     * @param nombre
+     * @param descripcion
+     * @param imagen
+     */
     public PersonajeEntity(Integer id, String nombre, String descripcion, String imagen) {
         this.id = id;
         this.nombre = nombre;
@@ -74,6 +91,9 @@ public class PersonajeEntity {
         return this;
     }
 
+    /**
+     * Funcion equal de PersonajeEntity
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -85,20 +105,25 @@ public class PersonajeEntity {
         return Objects.equals(id, personajeEntity.id);
     }
 
+    /**
+     * Funcion hasCode de PersonajeEntity
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
 
+    /**
+     * Funcion toString de PersonajeEntity
+     */
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", nombre='" + getNombre() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", imagen='" + getImagen() + "'" +
-            "}";
+                " id='" + getId() + "'" +
+                ", nombre='" + getNombre() + "'" +
+                ", descripcion='" + getDescripcion() + "'" +
+                ", imagen='" + getImagen() + "'" +
+                "}";
     }
-
 
 }

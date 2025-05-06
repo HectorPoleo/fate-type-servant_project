@@ -44,6 +44,7 @@ public class LoginController extends AbstractasController {
 
     /**
      * Metodo para iniciar usuarioServiceModel
+     * 
      * @throws SQLException
      */
     public LoginController() throws SQLException {
@@ -59,6 +60,7 @@ public class LoginController extends AbstractasController {
 
     /**
      * Metodo para inicializar tanto los idiomas como el usuarioServiceModel
+     * 
      * @throws SQLException
      */
     @FXML
@@ -72,6 +74,7 @@ public class LoginController extends AbstractasController {
 
     /**
      * Metodo para seleccionar los idiomas disponibles
+     * 
      * @throws SQLException
      */
     @FXML
@@ -85,6 +88,7 @@ public class LoginController extends AbstractasController {
 
     /**
      * Metodo para cargar los idiomas
+     * 
      * @param idioma
      */
     private void cargarIdioma(String idioma) {
@@ -93,7 +97,9 @@ public class LoginController extends AbstractasController {
     }
 
     /**
-     * Metodo para verificar que el login es correcto y mandarte a la pantalla de sugerencias
+     * Metodo para verificar que el login es correcto y mandarte a la pantalla de
+     * sugerencias
+     * 
      * @throws SQLException
      */
     @FXML
@@ -132,7 +138,7 @@ public class LoginController extends AbstractasController {
      * Metodo para cambiar a la pagina de recuPassword
      */
     @FXML
-    protected void recuPasswordClick(){
+    protected void recuPasswordClick() {
         cambiar(recuPasswordButton, "/recuPassword");
     }
 }

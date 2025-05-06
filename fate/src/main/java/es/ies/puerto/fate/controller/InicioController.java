@@ -8,7 +8,7 @@ import es.ies.puerto.fate.controller.abstractas.AbstractasController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class InicioController extends AbstractasController{
+public class InicioController extends AbstractasController {
 
     @FXML
     private Button origenButton;
@@ -56,11 +56,12 @@ public class InicioController extends AbstractasController{
 
     /**
      * Metodo para inicializar la base de datos
+     * 
      * @throws SQLException
      */
     @FXML
     public void initialize() throws SQLException {
-        if(ConfigManager.ConfigProperties.getPath() == null){
+        if (ConfigManager.ConfigProperties.getPath() == null) {
             ConfigManager.ConfigProperties.setPath("src/main/resources/bbdd/idioma-es.properties");
         }
     }

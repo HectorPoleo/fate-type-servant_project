@@ -204,6 +204,7 @@ public class AbstractasController extends Conexion {
 
     /**
      * Metodo para cambiar las paginas
+     * 
      * @param boton
      * @param button
      */
@@ -223,6 +224,7 @@ public class AbstractasController extends Conexion {
 
     /**
      * Metodo para cambiar los hypervinculos
+     * 
      * @param boton
      * @param button
      */
@@ -249,6 +251,7 @@ public class AbstractasController extends Conexion {
 
     /**
      * Set del UsuarioServiceModel
+     * 
      * @param usuarioServiceModel
      * @throws SQLException
      */

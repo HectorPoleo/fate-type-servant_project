@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class RecuPasswordController extends AbstractasController{
+public class RecuPasswordController extends AbstractasController {
     @FXML
     public Button volverButton;
 
@@ -24,10 +24,11 @@ public class RecuPasswordController extends AbstractasController{
     public Text advertencia;
 
     /**
-     * Metodo que llama a la clase cmabiar de los metodos abstractos para volver al login
+     * Metodo que llama a la clase cmabiar de los metodos abstractos para volver al
+     * login
      */
     @FXML
-    public void volverClick(){
+    public void volverClick() {
         cambiar(volverButton, "/login");
     }
 
@@ -35,13 +36,13 @@ public class RecuPasswordController extends AbstractasController{
      * Metodo para recuperar la contrasenia de la base de datos
      */
     @FXML
-    public void  recuperarClick() throws SQLException{
-        if(emailRecu.getText() == null || emailRecu.getText().isEmpty()){
+    public void recuperarClick() throws SQLException {
+        if (emailRecu.getText() == null || emailRecu.getText().isEmpty()) {
             advertencia.setText("Email invalido");
             return;
         }
         UsuarioEntity usuarioEntity = new UsuarioServiceModel().obtenerUsuarioSOLOPorEmail(emailRecu.getText());
-        if (usuarioEntity == null){
+        if (usuarioEntity == null) {
             advertencia.setText("No existe ningun usuario con ese email");
             return;
         }

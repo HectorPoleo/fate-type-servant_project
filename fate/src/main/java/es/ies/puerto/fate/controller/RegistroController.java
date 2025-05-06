@@ -4,13 +4,13 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import  es.ies.puerto.fate.controller.abstractas.AbstractasController;
+import es.ies.puerto.fate.controller.abstractas.AbstractasController;
 import es.ies.puerto.fate.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 
-public class RegistroController extends AbstractasController{
+public class RegistroController extends AbstractasController {
 
     @FXML
     public Button buttonRegistrar;
@@ -29,26 +29,28 @@ public class RegistroController extends AbstractasController{
 
     UsuarioServiceModel usuarioServiceModel;
 
-    public RegistroController(){
+    public RegistroController() {
     }
 
     /**
      * Metodo para inicializar los idiomas
+     * 
      * @throws SQLException
      */
     @FXML
-    public void initialize() throws SQLException{
+    public void initialize() throws SQLException {
         cambiarIdioma();
     }
 
     /**
      * Metodo que verifica los datos del registro para añadirlo a la base de datos
+     * 
      * @throws SQLException
      */
     @FXML
-    protected void onClickRegistrar()  throws SQLException{
+    protected void onClickRegistrar() throws SQLException {
         usuarioServiceModel = new UsuarioServiceModel();
-        
+
         if (textFieldUsuario == null || textFieldUsuario.getText().isEmpty()) {
             textMensaje.setText("¡El nombre de usuario no puede ser nulo o vacio!");
             return;
@@ -59,7 +61,8 @@ public class RegistroController extends AbstractasController{
             return;
         }
 
-        if (textFieldPassword == null || textFieldPassword.getText().isEmpty()|| textFieldPassword2 == null || textFieldPassword2.getText().isEmpty()) {
+        if (textFieldPassword == null || textFieldPassword.getText().isEmpty() || textFieldPassword2 == null
+                || textFieldPassword2.getText().isEmpty()) {
             textMensaje.setText("¡El password no puede ser nulo o vacio!");
             return;
         }
@@ -69,13 +72,14 @@ public class RegistroController extends AbstractasController{
             return;
         }
 
-        if (textFieldEmail == null || textFieldEmail.getText().isEmpty()|| textFieldEmail2 == null || textFieldEmail2.getText().isEmpty()) {
+        if (textFieldEmail == null || textFieldEmail.getText().isEmpty() || textFieldEmail2 == null
+                || textFieldEmail2.getText().isEmpty()) {
             textMensaje.setText("¡El email no puede ser nulo o vacio!");
             return;
         }
 
         String patron = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        
+
         Pattern p = Pattern.compile(patron);
         Matcher m = p.matcher(textFieldEmail.getText());
         if (!m.matches()) {
@@ -87,16 +91,17 @@ public class RegistroController extends AbstractasController{
             textMensaje.setText("El email ya esta registrado.");
             return;
         }
-        
+
         if (!textFieldPassword.getText().equals(textFieldPassword2.getText())) {
             textMensaje.setText("¡La passwords no son iguales!");
             return;
         }
 
-        boolean registro = usuarioServiceModel.aniadirUsuario(textFieldUsuario.getText(), textFieldNombre.getText(), textFieldPassword.getText(), textFieldEmail.getText());
+        boolean registro = usuarioServiceModel.aniadirUsuario(textFieldUsuario.getText(), textFieldNombre.getText(),
+                textFieldPassword.getText(), textFieldEmail.getText());
         if (registro == false) {
             textMensaje.setText("Ya hay una cuenta con ese usuario e email");
-        } else{
+        } else {
             textMensaje.setText("¡Usuario registrado!");
         }
     }
@@ -105,15 +110,15 @@ public class RegistroController extends AbstractasController{
      * Metodo para volver al login
      */
     @FXML
-    protected void volverAtrasLoginClick(){
+    protected void volverAtrasLoginClick() {
         paginaLogin();
     }
 
     /**
      * Metodo para ir a la pagina principal de la app
      */
-        @FXML
-    protected void volverAtrasClick(){
+    @FXML
+    protected void volverAtrasClick() {
         cambiar(atrasButton, "/app-init");
     }
 }

@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 
-public class OrigenController extends AbstractasController{
+public class OrigenController extends AbstractasController {
     @FXML
     private Button volverAtrasButton;
 
@@ -16,7 +16,7 @@ public class OrigenController extends AbstractasController{
      * Metodo para volver a la pagina principal
      */
     @FXML
-    protected void volverAtrasClick(){
+    protected void volverAtrasClick() {
         cambiar(volverAtrasButton, "/app-init");
     }
 

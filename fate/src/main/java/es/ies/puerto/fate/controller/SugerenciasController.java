@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class SugerenciasController extends AbstractasController{
+public class SugerenciasController extends AbstractasController {
     @FXML
     public Button inicioButton;
 
@@ -24,23 +24,24 @@ public class SugerenciasController extends AbstractasController{
      * Metodo para ir a la pagina app-init
      */
     @FXML
-    public void inicioClick(){
+    public void inicioClick() {
         cambiar(inicioButton, "/app-init");
     }
 
-    public SugerenciasController(){
+    public SugerenciasController() {
     }
 
     /**
      * Metodo para añadir sugerencias a la base de datos sugerencia
+     * 
      * @throws SQLException
      */
     @FXML
-    public void sugerenciaClick() throws SQLException{
+    public void sugerenciaClick() throws SQLException {
         usuarioServiceModel = new UsuarioServiceModel();
         String sugereciasText;
 
-        if(textId == null || textId.getText().isEmpty()){
+        if (textId == null || textId.getText().isEmpty()) {
             mensaje.setText("La sugerencia es invalida");
             return;
         }

@@ -1,8 +1,9 @@
 package es.ies.puerto.fate.model;
+
 import java.util.Objects;
 
 public class SugerenciaEntity {
-    
+
     private String text;
     private Integer id;
 
@@ -12,7 +13,6 @@ public class SugerenciaEntity {
     public SugerenciaEntity(Integer id) {
         this.id = id;
     }
-    
 
     public SugerenciaEntity(Integer id, String text) {
         this.text = text;
@@ -64,8 +64,8 @@ public class SugerenciaEntity {
     @Override
     public String toString() {
         return "{" +
-            " text='" + getText() + "'" +
-            ", id='" + getId() + "'" +
-            "}";
+                " text='" + getText() + "'" +
+                ", id='" + getId() + "'" +
+                "}";
     }
 }

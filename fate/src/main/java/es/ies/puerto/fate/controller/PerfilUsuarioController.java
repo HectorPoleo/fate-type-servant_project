@@ -38,6 +38,7 @@ public class PerfilUsuarioController extends AbstractController {
 
     /**
      * Metodo para cargar los datos
+     * 
      * @param usuario
      */
     public void setUsuario(UsuarioEntity usuario) {

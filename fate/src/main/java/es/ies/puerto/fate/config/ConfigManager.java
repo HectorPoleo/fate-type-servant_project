@@ -14,6 +14,7 @@ public class ConfigManager {
 
         /**
          * Get del id
+         * 
          * @return
          */
         public static int getId() {
@@ -22,6 +23,7 @@ public class ConfigManager {
 
         /**
          * Set del id
+         * 
          * @param id
          */
         public static void setId(int id) {
@@ -30,6 +32,7 @@ public class ConfigManager {
 
         /**
          * Get del path
+         * 
          * @return
          */
         public static String getPath() {
@@ -50,6 +53,7 @@ public class ConfigManager {
 
         /**
          * Set del path
+         * 
          * @param rutaPath
          */
         public static void setPath(String rutaPath) {
