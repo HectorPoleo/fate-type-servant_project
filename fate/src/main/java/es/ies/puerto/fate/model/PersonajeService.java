@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 public class PersonajeService extends Conexion {
@@ -17,11 +16,12 @@ public class PersonajeService extends Conexion {
 
     /**
      * Metodo para obtener personaje
+     * 
      * @param sql
      * @return
      * @throws SQLException
      */
-    public ArrayList<PersonajeEntity> obtenerPersonaje(String sql) throws SQLException {
+    public ArrayList<PersonajeEntity> obtenerPersonaje(String sql) {
         ArrayList<PersonajeEntity> peersonajes = new ArrayList<PersonajeEntity>();
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
@@ -38,28 +38,34 @@ public class PersonajeService extends Conexion {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            cerrar();
+            try {
+                cerrar();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return peersonajes;
     }
 
     /**
      * Metodo para obtener todos los Personajes
+     * 
      * @return
      * @throws SQLException
      */
-    public ArrayList<PersonajeEntity> obtenerTodosPersonajes() throws SQLException {
+    public ArrayList<PersonajeEntity> obtenerTodosPersonajes() {
         String sql = "SELECT * FROM personaje";
         return obtenerPersonaje(sql);
     }
 
     /**
      * Metodo para obtener personajes por id
+     * 
      * @param ID
      * @return
      * @throws SQLException
      */
-    public PersonajeEntity obtenerPersonajePorID(Integer ID) throws SQLException {
+    public PersonajeEntity obtenerPersonajePorID(Integer ID) {
         String sql = "SELECT * FROM personaje WHERE ID = '" + ID + "'";
         ArrayList<PersonajeEntity> personajes = obtenerPersonaje(sql);
         if (personajes.isEmpty()) {

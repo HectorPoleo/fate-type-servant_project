@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Set;
-import es.ies.puerto.fate.model.*;
 
 public class SugerenciaService extends Conexion {
 
@@ -13,6 +12,7 @@ public class SugerenciaService extends Conexion {
 
     /**
      * Metodo para obtener todas las sugerencias
+     * 
      * @return
      * @throws SQLException
      */
@@ -23,11 +23,12 @@ public class SugerenciaService extends Conexion {
 
     /**
      * Metodo para obtener la Sugerencia
+     * 
      * @param sql
      * @return
      * @throws SQLException
      */
-    public ArrayList<SugerenciaEntity> obtenerSugerencia(String sql) throws SQLException {
+    public ArrayList<SugerenciaEntity> obtenerSugerencia(String sql) {
         ArrayList<SugerenciaEntity> sugerencias = new ArrayList<SugerenciaEntity>();
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
@@ -39,7 +40,7 @@ public class SugerenciaService extends Conexion {
                 SugerenciaEntity sugerenciaModel = new SugerenciaEntity(idStr, textStr);
                 sugerencias.add(sugerenciaModel);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             cerrar();
@@ -49,11 +50,12 @@ public class SugerenciaService extends Conexion {
 
     /**
      * Metodo para obtener sugerencias por la id
+     * 
      * @param ID
      * @return
      * @throws SQLException
      */
-    public SugerenciaEntity obtenerSugerenciaPorId(Integer ID) throws SQLException {
+    public SugerenciaEntity obtenerSugerenciaPorId(Integer ID) {
         String sql = "SELECT * FROM sugerencia WHERE ID = '" + ID + "'";
         ArrayList<SugerenciaEntity> sugerencias = obtenerSugerencia(sql);
         if (sugerencias.isEmpty()) {
@@ -64,12 +66,14 @@ public class SugerenciaService extends Conexion {
 
     /**
      * Metodo para añadir sugerencias
+     * 
      * @param sugerencia
      * @return
      */
     public boolean aniadirSugerencia(String sugerencia) {
         try {
-            PreparedStatement sentencia = getConnection().prepareStatement("INSERT INTO sugerencia (sugerencia) values (?)");
+            PreparedStatement sentencia = getConnection()
+                    .prepareStatement("INSERT INTO sugerencia (sugerencia) values (?)");
             sentencia.setString(1, sugerencia);
             sentencia.execute();
             return true;
@@ -81,6 +85,7 @@ public class SugerenciaService extends Conexion {
 
     /**
      * Metodo DELETE de sugerencias
+     * 
      * @param sugerencia
      * @return
      */
@@ -93,6 +98,8 @@ public class SugerenciaService extends Conexion {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        } finally {
+            cerrar();
         }
     }
 }

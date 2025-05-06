@@ -24,15 +24,19 @@ public abstract class Conexion {
      * @throws SQLException error controlado
      */
     public Conexion(String unaRutaArchivoBD) throws SQLException {
-        if (unaRutaArchivoBD == null || unaRutaArchivoBD.isEmpty()) {
-            throw new SQLException("El fichero es nullo o vacio");
-        }
-        File file = new File(unaRutaArchivoBD);
-        if (!file.exists()) {
-            throw new SQLException("No existe la bbdd:" + unaRutaArchivoBD);
+        try {
+            if (unaRutaArchivoBD == null || unaRutaArchivoBD.isEmpty()) {
+                throw new SQLException("El fichero es nullo o vacio");
+            }
+            File file = new File(unaRutaArchivoBD);
+            if (!file.exists()) {
+                throw new SQLException("No existe la bbdd:" + unaRutaArchivoBD);
+            }
+            PATH_DB = unaRutaArchivoBD;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        PATH_DB = unaRutaArchivoBD;
     }
 
     public String getRutaArchivoBD() {
@@ -57,9 +61,14 @@ public abstract class Conexion {
      * @return
      * @throws SQLException
      */
-    public Connection conectar() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + PATH_DB);
+    public Connection conectar() {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection("jdbc:sqlite:" + PATH_DB);
+            }
+            return connection;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return connection;
     }
@@ -67,9 +76,8 @@ public abstract class Conexion {
     /**
      * Funcion que cierra la conexion de bbdd
      *
-     * @throws SQLException
      */
-    public void cerrar() throws SQLException {
+    public void cerrar() {
         try {
             if (connection != null || !connection.isClosed()) {
                 connection.close();
